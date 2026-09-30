@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca CEP - PWA</title>
+
+    <!-- Manifest do PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0288d1">
+
+    <!-- Material Icons & Materialize CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar Topo -->
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">Busca CEP PWA</a>
+        </div>
+    </nav>
+
+    <div class="container style-container">
+        <!-- TABS DE NAVEGAÇÃO -->
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s4"><a class="active" href="#cep-tab">Buscar por CEP</a></li>
+                    <li class="tab col s4"><a href="#rua-tab">Buscar por Rua</a></li>
+                    <li class="tab col s4"><a href="#log-tab">Histórico / Logs</a></li>
+                </ul>
+            </div>
+
+            <!-- ABA 1: BUSCA POR CEP -->
+            <div id="cep-tab" class="col s12 tab-content">
+                <div class="row">
+                    <div class="input-field col s12 m8">
+                        <i class="material-icons prefix">place</i>
+                        <input id="cep" type="text" placeholder="Ex: 50000000" maxlength="9">
+                        <label for="cep" class="active">Digitar CEP</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <button id="btn-cep" class="waves-effect waves-light btn light-blue lighten-1 width-100">
+                            <i class="material-icons right">search</i>Buscar CEP
+                        </button>
+                    </div>
+                </div>
+                <div id="resultado-cep"></div>
+            </div>
+
+            <!-- ABA 2: BUSCA POR RUA -->
+            <div id="rua-tab" class="col s12 tab-content">
+                <div class="row">
+                    <div class="input-field col s12 m4">
+                        <select id="select-uf">
+                            <option value="" disabled selected>Carregando UFs...</option>
+                        </select>
+                        <label>Estado (UF)</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <select id="select-cidade" disabled>
+                            <option value="" disabled selected>Selecione a UF primeiro</option>
+                        </select>
+                        <label>Cidade</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <input id="input-rua" type="text" placeholder="Ex: Boa Viagem">
+                        <label for="input-rua" class="active">Logradouro / Rua</label>
+                    </div>
+                    <div class="col s12">
+                        <button id="btn-rua" class="waves-effect waves-light btn light-blue lighten-1 width-100">
+                            <i class="material-icons right">search</i>Buscar Endereço
+                        </button>
+                    </div>
+                </div>
+                <div id="resultado-rua"></div>
+            </div>
+
+            <!-- ABA 3: HISTÓRICO DE LOGS -->
+            <div id="log-tab" class="col s12 tab-content">
+                <h5>Histórico de Consultas</h5>
+                <ul id="lista-logs" class="collection">
+                    <li class="collection-item">Nenhuma consulta realizada até o momento.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

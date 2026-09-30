@@ -1,0 +1,20 @@
+.style-container {
+    margin-top: 25px;
+}
+
+.tab-content {
+    margin-top: 25px;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.card-panel {
+    border-radius: 8px;
+}
+
+.collection-item .title {
+    font-size: 1.1rem;
+    color: #0288d1;
+}
